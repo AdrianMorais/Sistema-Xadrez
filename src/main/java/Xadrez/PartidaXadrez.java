@@ -24,8 +24,12 @@ public class PartidaXadrez {
         return mat;
     }
     
+    private void NovaPeca(char coluna, int linha, PecaXadrez peca) {
+        tabuleiro.colocarPeca(peca, new PosicaoXadrez(linha,coluna).toPosition());
+    }
+    
     private void iniciarPartida() {
-        tabuleiro.colocarPeca(new Torre(tabuleiro, Cores.BRANCO), new Posicao(7, 7));
+        NovaPeca('b', 6, new Torre(tabuleiro, Cores.BRANCO));
         tabuleiro.colocarPeca(new Torre(tabuleiro, Cores.BRANCO), new Posicao(7, 0));
         tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.BRANCO), new Posicao(7 , 4));
         tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.PRETO), new Posicao(0, 4));        
