@@ -23,9 +23,9 @@ public class Interface {
             System.err.print("- ");
         }
         else {
-            System.out.print("piece");
+            System.err.print(peca+" ");
         }
-        System.out.print(" ");
+            
     }
     
 }
