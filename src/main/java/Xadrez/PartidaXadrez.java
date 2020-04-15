@@ -2,6 +2,10 @@ package Xadrez;
 
 import tabuleiro.Posicao;
 import tabuleiro.Tabuleiro;
+import tabuleiro.pecas.Bispo;
+import tabuleiro.pecas.Cavalo;
+import tabuleiro.pecas.Peao;
+import tabuleiro.pecas.Rainha;
 import tabuleiro.pecas.Rei;
 import tabuleiro.pecas.Torre;
 
@@ -29,10 +33,65 @@ public class PartidaXadrez {
     }
     
     private void iniciarPartida() {
-        NovaPeca('b', 6, new Torre(tabuleiro, Cores.BRANCO));
-        tabuleiro.colocarPeca(new Torre(tabuleiro, Cores.BRANCO), new Posicao(7, 0));
-        tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.BRANCO), new Posicao(7 , 4));
-        tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.PRETO), new Posicao(0, 4));        
+        
+        //Peão Branco
+        NovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('b', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('c', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('d', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('e', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('f', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('g', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('h', 2, new Peao(tabuleiro, Cores.BRANCO));
+        
+        //Torres Branca
+        NovaPeca('a', 1, new Torre(tabuleiro, Cores.BRANCO));
+        NovaPeca('h',1, new Torre(tabuleiro, Cores.BRANCO));
+        
+        //Rei Branco
+        NovaPeca('e',1, new Rei(tabuleiro, Cores.BRANCO)); 
+        
+        //Rainha Branca
+        NovaPeca('d',1, new Rainha(tabuleiro, Cores.BRANCO));
+        
+        //Cavalos Brancos
+        NovaPeca('b', 1, new Cavalo(tabuleiro, Cores.BRANCO));
+        NovaPeca('g', 1, new Cavalo(tabuleiro, Cores.BRANCO));
+        
+        //Bispos brancos
+        NovaPeca('c', 1, new Bispo(tabuleiro, Cores.BRANCO));
+        NovaPeca('f', 1, new Bispo(tabuleiro, Cores.BRANCO));
+        
+        
+        //Peão Preto       
+        NovaPeca('a', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('b', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('c', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('d', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('e', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('f', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('g', 7, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('h', 7, new Peao(tabuleiro, Cores.BRANCO));
+        
+        //Torres Branca
+        NovaPeca('a', 8, new Torre(tabuleiro, Cores.BRANCO));
+        NovaPeca('h',8, new Torre(tabuleiro, Cores.BRANCO));
+        
+        //Rei Branco
+        NovaPeca('e',8, new Rei(tabuleiro, Cores.BRANCO)); 
+        
+        //Rainha Branca
+        NovaPeca('d',8, new Rainha(tabuleiro, Cores.BRANCO));
+        
+        //Cavalos Brancos
+        NovaPeca('b', 8, new Cavalo(tabuleiro, Cores.BRANCO));
+        NovaPeca('g', 8, new Cavalo(tabuleiro, Cores.BRANCO));
+        
+        //Bispos brancos
+        NovaPeca('c', 8, new Bispo(tabuleiro, Cores.BRANCO));
+        NovaPeca('f', 8, new Bispo(tabuleiro, Cores.BRANCO));
+        
+        
     }
     
 }
