@@ -12,7 +12,6 @@ public class Main {
         PartidaXadrez partida = new PartidaXadrez();
         Interface.mostrarTabuleiro(partida.getPecas());
         
-        
     }
     
 }

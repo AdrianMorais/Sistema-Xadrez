@@ -5,19 +5,11 @@ public class Tabuleiro {
     public int getLinha() {
         return linha;
     }
-
-    public void setLinha(int linha) {
-        this.linha = linha;
-    }
-
+    
     public int getColuna() {
         return coluna;
     }
-
-    public void setColuna(int coluna) {
-        this.coluna = coluna;
-    }
-    
+       
     private int linha;
     private int coluna;
     private Peca[][] pecas;
@@ -33,16 +25,41 @@ public class Tabuleiro {
     
     
     public Peca peca(int linha, int coluna) {
+        if(!PosicaoExistente(linha,coluna)){
+         throw new tabuleiroException("Posicao Inexistente");
+        }
         return pecas[linha][coluna];   
     }
     
     public Peca peca(Posicao posicao) {
+        if(!PosicaoExistente(posicao)){
+         throw new tabuleiroException("Posicao Inexistente");
+        }
         return pecas[posicao.getLinha()][posicao.getColuna()];   
     }
     
     public void colocarPeca(Peca peca, Posicao posicao) {
-       pecas[posicao.getLinha()][posicao.getColuna()] = peca;
+       if(PecaExistente(posicao)){
+         throw new tabuleiroException("Peça ja existente na posicao: " + posicao);  
+       }
+        
+        pecas[posicao.getLinha()][posicao.getColuna()] = peca;
        peca.posicao = posicao;
+    }
+    
+    public boolean PosicaoExistente(int linha, int coluna){
+       return linha >= 0 && linha < this.linha && coluna >= 0 && coluna < this.coluna;       
+    }
+    
+    public boolean PosicaoExistente(Posicao posicao){
+      return PosicaoExistente(posicao.getLinha() , posicao.getColuna());
+    }
+     
+    public boolean PecaExistente(Posicao posicao) {
+        if(!PosicaoExistente(posicao)){
+         throw new tabuleiroException("Posição Inexistente");
+        }
+        return peca(posicao) != null;    
     }
     
 }

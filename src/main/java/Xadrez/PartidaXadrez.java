@@ -28,8 +28,7 @@ public class PartidaXadrez {
         tabuleiro.colocarPeca(new Torre(tabuleiro, Cores.BRANCO), new Posicao(7, 7));
         tabuleiro.colocarPeca(new Torre(tabuleiro, Cores.BRANCO), new Posicao(7, 0));
         tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.BRANCO), new Posicao(7 , 4));
-        tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.PRETO), new Posicao(0, 4));
-        
+        tabuleiro.colocarPeca(new Rei(tabuleiro, Cores.PRETO), new Posicao(0, 4));        
     }
     
 }
