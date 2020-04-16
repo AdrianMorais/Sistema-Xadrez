@@ -13,5 +13,11 @@ public class Bispo extends Xadrez.PecaXadrez {
     public String toString() {        
         return "B";        
     }
+
+    @Override
+    public boolean[][] movimentosPossiveis() {
+        boolean[][] mat = new boolean[getTabuleiro().getLinha()][getTabuleiro().getColuna()];
+        return mat;
+    }
     
 }
