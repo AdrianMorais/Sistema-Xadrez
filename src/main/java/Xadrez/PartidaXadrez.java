@@ -8,6 +8,8 @@ import tabuleiro.pecas.Peao;
 import tabuleiro.pecas.Rainha;
 import tabuleiro.pecas.Rei;
 import tabuleiro.pecas.Torre;
+import tabuleiro.tabuleiroException;
+import tabuleiro.Peca;
 
 public class PartidaXadrez {
   
@@ -26,6 +28,31 @@ public class PartidaXadrez {
             }
         }
         return mat;
+    }
+    
+    public PecaXadrez movimentoPeca(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
+        
+        Posicao origem = posicaoOrigem.toPosition();
+        Posicao destino = posicaoDestino.toPosition();
+        
+        validateOrigemPosition(origem);
+        Peca pecaCapturada = fazerMovimento(origem,destino);
+        return (PecaXadrez)pecaCapturada;
+        
+    }
+    
+    private Peca fazerMovimento(Posicao origem, Posicao destino) {
+        Peca p = tabuleiro.removerPeca(origem);
+        Peca pecaCapturada = tabuleiro.removerPeca(destino);
+        tabuleiro.colocarPeca(p, destino);
+        return pecaCapturada;
+    }
+    
+    public void validateOrigemPosition(Posicao posicao) {
+        if(!tabuleiro.PecaExistente(posicao)) {
+            throw new tabuleiroException("Não existe peça na posição de origem");
+        }
+       
     }
     
     private void NovaPeca(char coluna, int linha, PecaXadrez peca) {

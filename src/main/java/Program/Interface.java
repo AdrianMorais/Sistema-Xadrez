@@ -2,6 +2,9 @@ package Program;
 
 import Xadrez.PecaXadrez;
 import Xadrez.Cores;
+import Xadrez.PosicaoXadrez;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Interface {
      
@@ -26,29 +29,41 @@ public class Interface {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     
+        
+    public static PosicaoXadrez lerPosicaoPeca(Scanner sc) {
+        try {                   
+            String s = sc.nextLine();
+            char coluna = s.charAt(0);
+            int linha = Integer.parseInt(s.substring(1));       
+            return new PosicaoXadrez(linha, coluna);      
+        }catch(RuntimeException e){
+            throw new InputMismatchException("Erro");
+        }
+    }
+        
     public static void mostrarTabuleiro(PecaXadrez[][] pecas) {
  
         for(int i = 0; i < pecas.length; i++){
-            System.err.print((8 - i) + " ");
+            System.out.print((8 - i) + " ");
             for(int j = 0; j < pecas.length; j++) {
                mostrarPeca(pecas[i][j]); 
             }
-            System.err.println();
+            System.out.println();
         }
-        System.err.println("  a b c d e f g h");
+        System.out.println("  a b c d e f g h");
         
     }
     
     private static void mostrarPeca(PecaXadrez peca) {
         if(peca == null) {
-            System.err.print("- ");
+            System.out.print("- ");
         }
         else {
             
             if(peca.getCor() == Cores.BRANCO) {
-                System.err.print(ANSI_WHITE + peca +" " + ANSI_RESET);            
+                System.out.print(ANSI_WHITE + peca +" " + ANSI_RESET);            
             }else {
-                System.err.println(ANSI_BLACK + peca + " " + ANSI_RESET);
+                System.out.println(ANSI_BLACK + peca + " " + ANSI_RESET);
             }
                 
         }
