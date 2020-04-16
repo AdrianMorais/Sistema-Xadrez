@@ -50,7 +50,7 @@ public class PartidaXadrez {
     
     public void validateOrigemPosition(Posicao posicao) {
         if(!tabuleiro.PecaExistente(posicao)) {
-            throw new tabuleiroException("Não existe peça na posição de origem");
+            throw new tabuleiroException("Nao existe peca na posicao de origem");
         }
        
     }
@@ -61,7 +61,7 @@ public class PartidaXadrez {
     
     private void iniciarPartida() {
         
-        //Peão Branco
+        //Peï¿½o Branco
         NovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
         NovaPeca('b', 2, new Peao(tabuleiro, Cores.BRANCO));
         NovaPeca('c', 2, new Peao(tabuleiro, Cores.BRANCO));
@@ -90,7 +90,7 @@ public class PartidaXadrez {
         NovaPeca('f', 1, new Bispo(tabuleiro, Cores.BRANCO));
         
         
-        //Peão Preto       
+        //Peï¿½o Preto       
         NovaPeca('a', 7, new Peao(tabuleiro, Cores.BRANCO));
         NovaPeca('b', 7, new Peao(tabuleiro, Cores.BRANCO));
         NovaPeca('c', 7, new Peao(tabuleiro, Cores.BRANCO));

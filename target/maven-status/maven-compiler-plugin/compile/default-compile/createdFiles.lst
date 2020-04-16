@@ -1,0 +1,17 @@
+tabuleiro\Tabuleiro.class
+Xadrez\PecaXadrez.class
+tabuleiro\Peca.class
+Program\Interface.class
+tabuleiro\pecas\Rei.class
+tabuleiro\tabuleiroException.class
+Program\Main.class
+tabuleiro\pecas\Torre.class
+tabuleiro\pecas\Cavalo.class
+Xadrez\PosicaoXadrez.class
+Xadrez\XadrezException.class
+tabuleiro\Posicao.class
+tabuleiro\pecas\Rainha.class
+tabuleiro\pecas\Peao.class
+Xadrez\PartidaXadrez.class
+tabuleiro\pecas\Bispo.class
+Xadrez\Cores.class
