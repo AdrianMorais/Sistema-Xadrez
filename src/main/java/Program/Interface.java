@@ -79,11 +79,16 @@ public class Interface {
          mostrarTabuleiro(partidaXadrez.getPecas());
          System.out.println();
          mostrarPecasCapturadas(capturadas);
-         System.out.println();      
+         System.out.println();                                          
          System.out.println("Turn: " + partidaXadrez.getTurno());
+         if(!partidaXadrez.getCheckMate()) { 
          System.out.println("Esperando jogador: " + partidaXadrez.getVezJogador());
          if(partidaXadrez.getCheck()) {
              System.out.println("CHECK");
+         }       
+         }else {
+             System.out.println("CHECKMATE!");
+             System.out.println("Ganhador: "+ partidaXadrez.getVezJogador());
          }
      }
     

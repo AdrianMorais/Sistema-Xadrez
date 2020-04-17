@@ -19,7 +19,7 @@ public class Main {
         List<PecaXadrez> capturadas = new ArrayList<>();
         
         
-        while (true) {
+        while (!partida.getCheckMate()) {
             try {
                 Interface.clearScreen();
                 Interface.mostrarPartida(partida, capturadas);
@@ -43,12 +43,13 @@ public class Main {
                 }
                 
             } catch (XadrezException e) {
-                e.getMessage();
-            } catch (InputMismatchException e) {
-                e.getMessage();
+                System.err.println(e.getMessage());
+            } catch (tabuleiroException e) {
+                System.err.println(e.getMessage());
             }
         }
-
+        Interface.clearScreen();
+        Interface.mostrarPartida(partida, capturadas);
     }
 
 }
