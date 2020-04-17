@@ -39,7 +39,7 @@ public class Interface {
             String s = sc.nextLine();
             char coluna = s.charAt(0);
             int linha = Integer.parseInt(s.substring(1));
-            return new PosicaoXadrez(linha, coluna);
+            return new PosicaoXadrez(coluna, linha);
         } catch (RuntimeException e) {
             throw new InputMismatchException("Erro");
         }

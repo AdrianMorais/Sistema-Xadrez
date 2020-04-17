@@ -13,8 +13,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        System.err.println("sdgas");
         PartidaXadrez partida = new PartidaXadrez();
 
+        
+        
         while (true) {
             try {
                 Interface.clearScreen();
@@ -28,7 +31,7 @@ public class Main {
                 System.out.print("Destino: ");
                 PosicaoXadrez destino = Interface.lerPosicaoPeca(sc);
 
-                PecaXadrez pecaCapturada = partida.movimentoPeca(origem, destino);
+                PecaXadrez pecaCapturada = partida.movimentoPeca(origem, destino);                               
             } catch (XadrezException e) {
                 e.getMessage();
             } catch (InputMismatchException e) {

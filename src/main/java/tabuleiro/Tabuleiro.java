@@ -2,31 +2,33 @@ package tabuleiro;
 
 public class Tabuleiro {
 
-    public int getLinha() {
-        return linha;
+    public int getLinhas() {
+        return linhas;
     }
     
-    public int getColuna() {
-        return coluna;
+    public int getColunas() {
+        return colunas;
     }
        
-    private int linha;
-    private int coluna;
+    private int linhas;
+    private int colunas;
     private Peca[][] pecas;
     
-    public Tabuleiro(int linha, int coluna) {
+    public Tabuleiro(int linhas, int colunas) {
+    if(linhas < 1 || colunas < 1) {
+        throw new tabuleiroException("Erro ao criar o tabuleiro");
+    }
+    this.linhas = linhas;
+    this.colunas = colunas;
     
-    this.linha = linha;
-    this.coluna = coluna;
-    
-    pecas = new Peca[linha][coluna];
+    pecas = new Peca[linhas][colunas];
     
     }
     
     
     public Peca peca(int linha, int coluna) {
         if(!PosicaoExistente(linha,coluna)){
-         throw new tabuleiroException("Posicao Inexistente");
+         throw new tabuleiroException("Posicao nao esta no tabuleiro");
         }
         return pecas[linha][coluna];   
     }
@@ -40,10 +42,10 @@ public class Tabuleiro {
     
     public void colocarPeca(Peca peca, Posicao posicao) {
        if(PecaExistente(posicao)){
-         throw new tabuleiroException("Peça ja existente na posicao: " + posicao);  
+         throw new tabuleiroException("Peca ja existente na posicao: " + posicao);  
        }
         
-        pecas[posicao.getLinha()][posicao.getColuna()] = peca;
+       pecas[posicao.getLinha()][posicao.getColuna()] = peca;
        peca.posicao = posicao;
     }
     
@@ -62,16 +64,16 @@ public class Tabuleiro {
     
     
     public boolean PosicaoExistente(int linha, int coluna){
-       return linha >= 0 && linha < this.linha && coluna >= 0 && coluna < this.coluna;       
+       return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;       
     }
     
     public boolean PosicaoExistente(Posicao posicao){
-      return PosicaoExistente(posicao.getLinha() , posicao.getColuna());
+      return PosicaoExistente(posicao.getLinha(), posicao.getColuna());
     }
      
     public boolean PecaExistente(Posicao posicao) {
         if(!PosicaoExistente(posicao)){
-         throw new tabuleiroException("Posição Inexistente");
+        throw new tabuleiroException("Posicao nao esta no tabuleiro");
         }
         return peca(posicao) != null;    
     }

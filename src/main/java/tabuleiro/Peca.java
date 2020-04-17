@@ -5,17 +5,13 @@ public abstract class Peca {
     protected Posicao posicao;
     protected Tabuleiro tabuleiro;
     
-    public Peca(Tabuleiro tabuleiro) {
-        
+    public Peca(Tabuleiro tabuleiro) {       
         this.tabuleiro = tabuleiro;
-        posicao = null;
-        
+        posicao = null;        
     }
     
-    protected Tabuleiro getTabuleiro() {       
- 
-        return tabuleiro;
-        
+    protected Tabuleiro getTabuleiro() {        
+        return tabuleiro;       
     }
     
     public abstract boolean[][] movimentosPossiveis();      
@@ -29,7 +25,7 @@ public abstract class Peca {
         
         for(int i = 0; i < mat.length; i++) {
             for(int j = 0; j < mat.length; j++){
-                if(mat[i][j] == true){
+                if(mat[i][j]){
                     return true;
                 }
                     

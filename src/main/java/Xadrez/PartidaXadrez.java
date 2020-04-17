@@ -21,10 +21,10 @@ public class PartidaXadrez {
     }
     
     public PecaXadrez[][] getPecas() {
-        PecaXadrez[][] mat = new PecaXadrez[tabuleiro.getLinha()][tabuleiro.getColuna()];
-        for (int i = 0; i < tabuleiro.getLinha(); i++) {
-            for(int j = 0; j < tabuleiro.getColuna(); j++){
-                mat[i][j] = (PecaXadrez)tabuleiro.peca(i , j);
+        PecaXadrez[][] mat = new PecaXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];
+        for (int i = 0; i < tabuleiro.getLinhas(); i++) {
+            for(int j = 0; j < tabuleiro.getColunas(); j++){
+                mat[i][j] = (PecaXadrez)tabuleiro.peca(i, j);
             }
         }
         return mat;
@@ -35,8 +35,11 @@ public class PartidaXadrez {
         Posicao origem = posicaoOrigem.toPosition();
         Posicao destino = posicaoDestino.toPosition();
         
-        validateOrigemPosition(origem);
+        validateOrigemPosition(origem); 
+        validateDestinoPosition(origem,destino);
+        
         Peca pecaCapturada = fazerMovimento(origem,destino);
+                        
         return (PecaXadrez)pecaCapturada;
         
     }
@@ -58,70 +61,21 @@ public class PartidaXadrez {
        
     }
     
+    public void validateDestinoPosition(Posicao origem, Posicao destino) {
+        if(!tabuleiro.peca(origem).movimentoPossivel(destino)) {
+            throw new tabuleiroException("A peça escolhida não pode se mover para a peça de destino");
+        }
+    }
+    
     private void NovaPeca(char coluna, int linha, PecaXadrez peca) {
-        tabuleiro.colocarPeca(peca, new PosicaoXadrez(linha,coluna).toPosition());
+        tabuleiro.colocarPeca(peca, new PosicaoXadrez(coluna,linha).toPosition());
     }
     
     private void iniciarPartida() {
         
-        //Pe�o Branco
-        NovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('b', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('c', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('d', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('e', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('f', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('g', 2, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('h', 2, new Peao(tabuleiro, Cores.BRANCO));
         
-        //Torres Branca
-        NovaPeca('a', 1, new Torre(tabuleiro, Cores.BRANCO));
-        NovaPeca('h',1, new Torre(tabuleiro, Cores.BRANCO));
-        
-        //Rei Branco
-        NovaPeca('e',1, new Rei(tabuleiro, Cores.BRANCO)); 
-        
-        //Rainha Branca
-        NovaPeca('d',1, new Rainha(tabuleiro, Cores.BRANCO));
-        
-        //Cavalos Brancos
-        NovaPeca('b', 1, new Cavalo(tabuleiro, Cores.BRANCO));
-        NovaPeca('g', 1, new Cavalo(tabuleiro, Cores.BRANCO));
-        
-        //Bispos brancos
-        NovaPeca('c', 1, new Bispo(tabuleiro, Cores.BRANCO));
-        NovaPeca('f', 1, new Bispo(tabuleiro, Cores.BRANCO));
-        
-        
-        //Pe�o Preto       
-        NovaPeca('a', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('b', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('c', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('d', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('e', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('f', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('g', 7, new Peao(tabuleiro, Cores.BRANCO));
-        NovaPeca('h', 7, new Peao(tabuleiro, Cores.BRANCO));
-        
-        //Torres Branca
-        NovaPeca('a', 8, new Torre(tabuleiro, Cores.BRANCO));
-        NovaPeca('h',8, new Torre(tabuleiro, Cores.BRANCO));
-        
-        //Rei Branco
-        NovaPeca('e',8, new Rei(tabuleiro, Cores.BRANCO)); 
-        
-        //Rainha Branca
-        NovaPeca('d',8, new Rainha(tabuleiro, Cores.BRANCO));
-        
-        //Cavalos Brancos
-        NovaPeca('b', 8, new Cavalo(tabuleiro, Cores.BRANCO));
-        NovaPeca('g', 8, new Cavalo(tabuleiro, Cores.BRANCO));
-        
-        //Bispos brancos
-        NovaPeca('c', 8, new Bispo(tabuleiro, Cores.BRANCO));
-        NovaPeca('f', 8, new Bispo(tabuleiro, Cores.BRANCO));
-        
-        
+        NovaPeca('b',3, new Torre(tabuleiro, Cores.BRANCO));
+          
     }
     
 }
