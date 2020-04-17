@@ -80,7 +80,9 @@ public class PartidaXadrez {
     private void iniciarPartida() {
 
         NovaPeca('b', 3, new Torre(tabuleiro, Cores.BRANCO));
-
+        
+        NovaPeca('d', 4, new Rei(tabuleiro, Cores.PRETO));
+        
     }
 
 }

@@ -82,7 +82,7 @@ public class Interface {
             if (peca.getCor() == Cores.BRANCO) {
                 System.out.print(ANSI_WHITE + peca + " " + ANSI_RESET);
             } else {
-                System.out.println(ANSI_BLACK + peca + " " + ANSI_RESET);
+                System.out.print(ANSI_BLACK + peca + " " + ANSI_RESET);
             }
 
         }
