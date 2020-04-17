@@ -11,7 +11,21 @@ public abstract class PecaXadrez extends Peca {
     }
 
     private Cores cor;
-
+    private int contadorMovimento;
+    
+    
+    protected void adicionarContadorMovimento() {
+        contadorMovimento++;
+    }
+    
+   protected void removerContadorMovimento() {
+       contadorMovimento--;
+   }
+    
+   public int getContadorMovimento() {
+       return contadorMovimento;
+   }
+   
     public PecaXadrez(Tabuleiro tabuleiro, Cores cor) {
         super(tabuleiro);
 
