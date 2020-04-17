@@ -2,6 +2,7 @@ package Program;
 
 import Xadrez.PecaXadrez;
 import Xadrez.Cores;
+import Xadrez.PartidaXadrez;
 import Xadrez.PosicaoXadrez;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -71,6 +72,13 @@ public class Interface {
 
     }
     
+     public static void mostrarPartida(PartidaXadrez partidaXadrez) {
+         mostrarTabuleiro(partidaXadrez.getPecas());
+         System.out.println();
+         System.out.println("Turn: " + partidaXadrez.getTurno());
+         System.out.println("Esperando jogador: " + partidaXadrez.getVezJogador());
+     }
+     
     private static void mostrarPeca(PecaXadrez peca,boolean background) {
         if(background) {
             System.out.print(ANSI_BLUE_BACKGROUND);

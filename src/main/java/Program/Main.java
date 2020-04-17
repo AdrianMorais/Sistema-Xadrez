@@ -20,7 +20,7 @@ public class Main {
         while (true) {
             try {
                 Interface.clearScreen();
-                Interface.mostrarTabuleiro(partida.getPecas());
+                Interface.mostrarPartida(partida);
                 
                 System.out.println();
                 System.out.print("Origem: ");

@@ -12,11 +12,24 @@ import tabuleiro.tabuleiroException;
 import tabuleiro.Peca;
 
 public class PartidaXadrez {
-
+    
+    private int turno;
+    private Cores vezJogador;
     private Tabuleiro tabuleiro;
 
+    
+    public int getTurno() {
+        return turno;
+    }
+    
+    public Cores getVezJogador() {
+        return vezJogador;
+    }
+    
     public PartidaXadrez() {
         tabuleiro = new Tabuleiro(8, 8);
+        turno = 1;
+        vezJogador = Cores.BRANCO;
         iniciarPartida();
     }
 
@@ -37,7 +50,7 @@ public class PartidaXadrez {
     }
 
     public PecaXadrez movimentoPeca(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
-
+        
         Posicao origem = posicaoOrigem.toPosition();
         Posicao destino = posicaoDestino.toPosition();
 
@@ -45,7 +58,7 @@ public class PartidaXadrez {
         validateDestinoPosition(origem, destino);
 
         Peca pecaCapturada = fazerMovimento(origem, destino);
-
+        proximoTurno();
         return (PecaXadrez) pecaCapturada;
 
     }
@@ -61,6 +74,9 @@ public class PartidaXadrez {
         if (!tabuleiro.PecaExistente(posicao)) {
             throw new tabuleiroException("Nao existe peca na posicao de origem");
         }
+        if(vezJogador != ((PecaXadrez)tabuleiro.peca(posicao)).getCor()) {
+            throw new tabuleiroException("A peça escolhida nao e sua");
+        }
         if (!tabuleiro.peca(posicao).verificandoMovimento()) {
             throw new tabuleiroException("Não existe movimentos possiveis para a peça escolhida");
         }
@@ -72,11 +88,18 @@ public class PartidaXadrez {
             throw new tabuleiroException("A peça escolhida não pode se mover para a peça de destino");
         }
     }
-
+    
+    
+    private void proximoTurno() {
+        turno++;
+        vezJogador = (vezJogador == Cores.BRANCO) ? Cores.PRETO : Cores.BRANCO; 
+    }
+    
+    
     private void NovaPeca(char coluna, int linha, PecaXadrez peca) {
         tabuleiro.colocarPeca(peca, new PosicaoXadrez(coluna, linha).toPosition());
     }
-
+    
     private void iniciarPartida() {
 
         NovaPeca('b', 3, new Torre(tabuleiro, Cores.BRANCO));
