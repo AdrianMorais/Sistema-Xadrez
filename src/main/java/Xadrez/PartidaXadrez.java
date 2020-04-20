@@ -73,14 +73,12 @@ public class PartidaXadrez {
         Posicao destino = posicaoDestino.toPosition();
         validateOrigemPosition(origem);
         validateDestinoPosition(origem, destino);
-
         Peca pecaCapturada = fazerMovimento(origem, destino);
         
         if(testeCheck(vezJogador)) {
             desfazerMovimento(origem, destino, pecaCapturada);
             throw new XadrezException("Você não pode se colocar em xeque");
-        }
-        
+        }      
         check = (testeCheck(oponente(vezJogador))) ? true : false;
         
         if(testeCheckMate(oponente(vezJogador))) {
@@ -89,11 +87,10 @@ public class PartidaXadrez {
             proximoTurno();
         }
                        
-        proximoTurno();
         return (PecaXadrez) pecaCapturada;
 
     }
-
+    
     private Peca fazerMovimento(Posicao origem, Posicao destino) {
         PecaXadrez p = (PecaXadrez)tabuleiro.removerPeca(origem);
         p.adicionarContadorMovimento();
@@ -205,7 +202,11 @@ public class PartidaXadrez {
         NovaPeca('d', 1,new Torre(tabuleiro, Cores.BRANCO));
         NovaPeca('h', 7,new Torre(tabuleiro, Cores.BRANCO));
         
-                
+        NovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
+        NovaPeca('b', 3, new Peao(tabuleiro, Cores.PRETO));
+        
+        NovaPeca('d', 4, new Bispo(tabuleiro, Cores.BRANCO));
+        
         NovaPeca('b', 8, new Torre(tabuleiro, Cores.PRETO));
         NovaPeca('a', 8, new Rei(tabuleiro, Cores.PRETO));
         
