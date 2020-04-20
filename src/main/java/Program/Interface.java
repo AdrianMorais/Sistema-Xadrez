@@ -80,7 +80,7 @@ public class Interface {
          System.out.println();
          mostrarPecasCapturadas(capturadas);
          System.out.println();                                          
-         System.out.println("Turn: " + partidaXadrez.getTurno());
+         System.out.println("Turno: " + partidaXadrez.getTurno());
          if(!partidaXadrez.getCheckMate()) { 
          System.out.println("Esperando jogador: " + partidaXadrez.getVezJogador());
          if(partidaXadrez.getCheck()) {
@@ -97,13 +97,13 @@ public class Interface {
          List<PecaXadrez> branco = capturadas.stream().filter(x -> x.getCor() == Cores.BRANCO).collect(Collectors.toList());
          List<PecaXadrez> preto = capturadas.stream().filter(x -> x.getCor() == Cores.PRETO).collect(Collectors.toList());
          
-         System.out.println("Peças capturadas");  
+         System.out.println("Pecas capturadas");  
          System.out.print("Brancas: ");
          System.out.print(ANSI_WHITE);
          System.out.println(Arrays.toString(branco.toArray()));
          System.out.print(ANSI_RESET);
          System.out.print("Pretas: ");
-         System.out.print(ANSI_BLACK);
+         System.out.print(ANSI_YELLOW);
          System.out.println(Arrays.toString(preto.toArray()));
          System.out.print(ANSI_RESET);
          
@@ -120,7 +120,7 @@ public class Interface {
             if (peca.getCor() == Cores.BRANCO) {
                 System.out.print(ANSI_WHITE + peca + " " + ANSI_RESET);
             } else {
-                System.out.print(ANSI_BLACK + peca + " " + ANSI_RESET);
+                System.out.print(ANSI_YELLOW + peca + " " + ANSI_RESET);
             }
 
         }
