@@ -43,9 +43,14 @@ public class Main {
                 }
                 
             } catch (XadrezException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
+                sc.nextLine();
             } catch (tabuleiroException e) {
-                System.err.println(e.getMessage());
+                System.out.println(e.getMessage());
+                sc.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
             }
         }
         Interface.clearScreen();

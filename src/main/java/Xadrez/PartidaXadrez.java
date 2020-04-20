@@ -205,7 +205,11 @@ public class PartidaXadrez {
         NovaPeca('a', 2, new Peao(tabuleiro, Cores.BRANCO));
         NovaPeca('b', 3, new Peao(tabuleiro, Cores.PRETO));
         
+        NovaPeca('c', 3, new Cavalo(tabuleiro, Cores.PRETO));
+        
         NovaPeca('d', 4, new Bispo(tabuleiro, Cores.BRANCO));
+        
+        NovaPeca('d', 5, new Rainha(tabuleiro, Cores.BRANCO));
         
         NovaPeca('b', 8, new Torre(tabuleiro, Cores.PRETO));
         NovaPeca('a', 8, new Rei(tabuleiro, Cores.PRETO));
