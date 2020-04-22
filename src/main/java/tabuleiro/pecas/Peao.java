@@ -36,6 +36,10 @@ public class Peao extends Xadrez.PecaXadrez {
             if (getTabuleiro().PosicaoExistente(p) && !getTabuleiro().PecaExistente(p) && getTabuleiro().PosicaoExistente(p2) && !getTabuleiro().PecaExistente(p2) && getContadorMovimento() == 0) {
                 mat[p.getLinha()][p.getColuna()] = true;
             }
+            p.setValues(posicao.getLinha() - 1, posicao.getColuna() + 1);
+            if (getTabuleiro().PosicaoExistente(p) && pecaOponente(p)) {
+                mat[p.getLinha()][p.getColuna()] = true;
+            }
             p.setValues(posicao.getLinha() - 1, posicao.getColuna() - 1);
             if (getTabuleiro().PosicaoExistente(p) && pecaOponente(p)) {
                 mat[p.getLinha()][p.getColuna()] = true;
@@ -63,6 +67,10 @@ public class Peao extends Xadrez.PecaXadrez {
                 mat[p.getLinha()][p.getColuna()] = true;
             }
             p.setValues(posicao.getLinha() + 1, posicao.getColuna() + 1);
+            if (getTabuleiro().PosicaoExistente(p) && pecaOponente(p)) {
+                mat[p.getLinha()][p.getColuna()] = true;
+            }
+            p.setValues(posicao.getLinha() + 1, posicao.getColuna() - 1);
             if (getTabuleiro().PosicaoExistente(p) && pecaOponente(p)) {
                 mat[p.getLinha()][p.getColuna()] = true;
             }

@@ -42,6 +42,17 @@ public class Main {
                     capturadas.add(pecaCapturada);
                 }
                 
+                if(partida.getPromocao() != null) {
+                    System.out.println("Digita a Peca que deseja promover (B/R/T/C)");
+                    String tipo = sc.nextLine();
+                    while(!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("R") && !tipo.equals("T")) {
+                    System.out.println("Peca Invalida,Digite novamente e escolha uma destas peças (B/R/T/C)");
+                    tipo = sc.nextLine(); 
+                    }
+                    
+                    partida.pecaRecolocada(tipo);
+                }
+                        
             } catch (XadrezException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
